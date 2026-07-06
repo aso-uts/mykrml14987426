@@ -1,0 +1,8 @@
+# mykrml149874
+
+[![Release](https://img.shields.io/github/v/release/fpgmaas/mykrml149874)](https://img.shields.io/github/v/release/fpgmaas/mykrml149874)
+[![Build status](https://img.shields.io/github/actions/workflow/status/fpgmaas/mykrml149874/main.yml?branch=main)](https://github.com/fpgmaas/mykrml149874/actions/workflows/main.yml?query=branch%3Amain)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/fpgmaas/mykrml149874)](https://img.shields.io/github/commit-activity/m/fpgmaas/mykrml149874)
+[![License](https://img.shields.io/github/license/fpgmaas/mykrml149874)](https://img.shields.io/github/license/fpgmaas/mykrml149874)
+
+This is a template repository for Python projects that use uv for their dependency management.
