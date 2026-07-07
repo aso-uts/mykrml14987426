@@ -1,6 +1,6 @@
 [project]
 name = "mykrml14987426"
-version = "0.0.4"
+version = "0.0.5"
 description = "This is a template repository for Python projects that use uv for their dependency management."
 authors = [{ name = "Anthony", email = "foo@email.com" }]
 readme = "README.md"
@@ -114,5 +114,4 @@ preview = true
 name = "testpypi"
 url = "https://test.pypi.org/simple/"
 publish-url = "https://test.pypi.org/legacy/"
-
-
+explicit = true
