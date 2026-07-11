@@ -27,22 +27,30 @@ def pop_target(df, target_col):
 
 # Solution
 
-def save_sets(X_train=None, y_train=None, X_val=None, y_val=None, X_test=None, y_test=None, path='../data/processed/'):
+def save_sets(
+      X_train=None,
+      y_train=None,
+      X_val=None,
+      y_val=None,
+      X_test=None,
+      y_test=None,
+      path='../data/processed/',
+):
     """Save the different sets locally
 
     Parameters
     ----------
-    X_train: Numpy Array
+    X_train: Pandas DataFrame
         Features for the training set
-    y_train: Numpy Array
+    y_train: Pandas DataFrame
         Target for the training set
-    X_val: Numpy Array
+    X_val: Pandas DataFrame
         Features for the validation set
-    y_val: Numpy Array
+    y_val: Pandas DataFrame
         Target for the validation set
-    X_test: Numpy Array
+    X_test: Pandas DataFrame
         Features for the testing set
-    y_test: Numpy Array
+    y_test: Pandas DataFrame
         Target for the testing set
     path : str
         Path to the folder where the sets will be saved (default: '../data/processed/')
@@ -50,20 +58,20 @@ def save_sets(X_train=None, y_train=None, X_val=None, y_val=None, X_test=None, y
     Returns
     -------
     """
-    import numpy as np
+    import pandas as pd
 
     if X_train is not None:
-      np.save(f'{path}X_train', X_train)
+      X_train.to_csv(f'{path}X_train.csv', index=False)
     if X_val is not None:
-      np.save(f'{path}X_val',   X_val)
+      X_val.to_csv(f'{path}X_val.csv', index=False)
     if X_test is not None:
-      np.save(f'{path}X_test',  X_test)
+      X_test.to_csv(f'{path}X_test.csv', index=False)
     if y_train is not None:
-      np.save(f'{path}y_train', y_train)
+      y_train.to_csv(f'{path}y_train.csv', index=False)
     if y_val is not None:
-      np.save(f'{path}y_val',   y_val)
+      y_val.to_csv(f'{path}y_val.csv', index=False)
     if y_test is not None:
-      np.save(f'{path}y_test',  y_test)
+      y_test.to_csv(f'{path}y_test.csv', index=False)
 
 
 # Solution
@@ -78,28 +86,28 @@ def load_sets(path='../data/processed/'):
 
     Returns
     -------
-    Numpy Array
+    Pandas DataFrame
         Features for the training set
-    Numpy Array
+    Pandas DataFrame
         Target for the training set
-    Numpy Array
+    Pandas DataFrame
         Features for the validation set
-    Numpy Array
+    Pandas DataFrame
         Target for the validation set
-    Numpy Array
+    Pandas DataFrame
         Features for the testing set
-    Numpy Array
+    Pandas DataFrame
         Target for the testing set
     """
-    import numpy as np
+    import pandas as pd
     import os.path
 
-    X_train = np.load(f'{path}X_train.npy', allow_pickle=True) if os.path.isfile(f'{path}X_train.npy') else None
-    X_val   = np.load(f'{path}X_val.npy'  , allow_pickle=True) if os.path.isfile(f'{path}X_val.npy')   else None
-    X_test  = np.load(f'{path}X_test.npy' , allow_pickle=True) if os.path.isfile(f'{path}X_test.npy')  else None
-    y_train = np.load(f'{path}y_train.npy', allow_pickle=True) if os.path.isfile(f'{path}y_train.npy') else None
-    y_val   = np.load(f'{path}y_val.npy'  , allow_pickle=True) if os.path.isfile(f'{path}y_val.npy')   else None
-    y_test  = np.load(f'{path}y_test.npy' , allow_pickle=True) if os.path.isfile(f'{path}y_test.npy')  else None
+    X_train = pd.read_csv(f'{path}X_train.csv') if os.path.isfile(f'{path}X_train.csv') else None
+    X_val   = pd.read_csv(f'{path}X_val.csv')   if os.path.isfile(f'{path}X_val.csv')   else None
+    X_test  = pd.read_csv(f'{path}X_test.csv')  if os.path.isfile(f'{path}X_test.csv')  else None
+    y_train = pd.read_csv(f'{path}y_train.csv') if os.path.isfile(f'{path}y_train.csv') else None
+    y_val   = pd.read_csv(f'{path}y_val.csv')   if os.path.isfile(f'{path}y_val.csv')   else None
+    y_test  = pd.read_csv(f'{path}y_test.csv')  if os.path.isfile(f'{path}y_test.csv')  else None
 
     return X_train, y_train, X_val, y_val, X_test, y_test
 
